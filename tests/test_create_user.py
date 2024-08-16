@@ -23,7 +23,7 @@ class TestCreateUser:
         playload = generate_user()
         requests.post(f'{Urls.main_url}{Urls.api_create_user}', data=playload)
         response = requests.post(f'{Urls.main_url}{Urls.api_create_user}', data=playload)
-        assert response.status_code == 400 and response.text == ErrorMessage.text_create_403_double
+        assert 403 == response.status_code and  response.json()['message'] == ErrorMessage.text_create_403_double
 
     @allure.title('Проверка регистрации пользователя без имени')
     @allure.description('Создаем пользователя с пустым полем name, \
@@ -32,7 +32,7 @@ class TestCreateUser:
         payload = generate_user()
         del payload['name']
         response = requests.post(f'{Urls.main_url}{Urls.api_create_user}', data={})
-        assert response.status_code == 400 and response.text == ErrorMessage.text_create_403_wrong
+        assert 403 == response.status_code and response.json()['message'] == ErrorMessage.text_create_403_wrong
 
     @allure.title('Проверка регистрации пользователя без почты')
     @allure.description('Создаем пользователя с пустым полем email, \
@@ -41,7 +41,7 @@ class TestCreateUser:
         payload= generate_user()
         del payload['email']
         response = requests.post(f'{Urls.main_url}{Urls.api_create_user}', data={})
-        assert response.status_code == 400 and response.text == ErrorMessage.text_create_403_wrong
+        assert 403 == response.status_code and response.json()['message'] == ErrorMessage.text_create_403_wrong
 
     @allure.title('Проверка регистрации пользователя без пароля')
     @allure.description('Создаем пользователя с пустым полем password, \
@@ -50,4 +50,4 @@ class TestCreateUser:
         payload= generate_user()
         del payload['password']
         response = requests.post(f'{Urls.main_url}{Urls.api_create_user}', data={})
-        assert response.status_code == 400 and response.text == ErrorMessage.text_create_403_wrong
+        assert 403 == response.status_code and response.json()['message'] == ErrorMessage.text_create_403_wrong

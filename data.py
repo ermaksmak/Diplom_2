@@ -28,3 +28,8 @@ class ErrorMessage:
     text_update_401 = "You should be authorised"
     text_order_without_ingredients = "Ingredient ids must be provided"
     text_get_orders_no_auth = "You should be authorised"
+
+class Burgers:
+    met_flu_classic = 'Метеоритный флюоресцентный традиционный-галактический бургер'
+    space_mars = 'Space бессмертный био-марсианский бургер'
+    spicy = 'Spicy бессмертный краторный бургер'

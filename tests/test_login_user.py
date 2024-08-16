@@ -22,4 +22,4 @@ class TestLoginUser:
         del payload['name']
         payload['password'] = 'wrong_password'
         response = requests.post(f'{Urls.main_url}{Urls.api_login_user}', data=payload)
-        assert response.status_code == 400 and response.text == ErrorMessage.text_login_401
+        assert response.status_code == 401 and response.json()['message'] == ErrorMessage.text_login_401
