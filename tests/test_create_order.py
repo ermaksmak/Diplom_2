@@ -13,3 +13,20 @@ class TestCreateOrder:
         response = requests.post(f'{Urls.main_url}{Urls.api_create_order}', data=ingredients)
         order = response.json()
         assert order['name'] == Burgers.space_mars and order['success'] == True
+
+    def test_create_order_without_ingredients(self, get_ingredient_hash):
+        ingredients = {'ingredients': []}
+        response = requests.post(f'{Urls.main_url}{Urls.api_create_order}', data=ingredients)
+        assert response.status_code == 400 and response.json()['message'] == ErrorMessage.text_order_without_ingredients
+
+    def test_create_order_with_ingredients(self, create_user_and_get_token, get_ingredient_hash):
+        ingredients = {'ingredients': [get_ingredient_hash['data'][1]['_id'], get_ingredient_hash['data'][4]['_id'], get_ingredient_hash['data'][8]['_id']]}
+        response = requests.post(f'{Urls.main_url}{Urls.api_create_order}', data=ingredients)
+        order = response.json()
+        assert order['name'] == Burgers.spicy and order['success'] == True
+
+
+    def test_create_order_with_unvalid_hash_ingredients(self, get_ingredient_hash):
+        ingredients = {'ingredients': [Data.f_hash, Data.f_hash]}
+        response = requests.post(f'{Urls.main_url}{Urls.api_create_order}', data=ingredients)
+        assert response.status_code == 500
