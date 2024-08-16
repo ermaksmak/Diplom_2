@@ -18,3 +18,13 @@ class Urls:
     api_get_user = '/api/auth/user'
     api_get_ingredients = "/api/ingredients"
     api_create_order = "/api/orders"
+
+class ErrorMessage:
+    text_login_401 = 'email or password are incorrect'
+    text_login_404 = "Учетная запись не найдена"
+    text_create_403_double = "User already exists"
+    text_create_403_wrong = "Email, password and name are required fields"
+    text_create_400 = "Недостаточно данных для создания учетной записи"
+    text_update_401 = "You should be authorised"
+    text_order_without_ingredients = "Ingredient ids must be provided"
+    text_get_orders_no_auth = "You should be authorised"
