@@ -1,10 +1,28 @@
-# Diplom_2 Проект автоматизации тестирования API сайта https://stellarburgers.nomoreparties.site/
-2. Команда для запуска — pytest -vv
-3. Команда для получения Allure отчета —  allure serve allure_results
-4. В проекте реализованы проверки:
+# Diplom_2 
+## Проект автоматизации тестирования API сайта https://stellarburgers.nomoreparties.site/
+### Структура проекта
+В проекте реализованы проверки:
  - Cоздание пользователя
  - Авторизация пользователя
  - Создание заказа
  - Получения заказов пользователя
  - Изменение данных пользователя
+
+### Команды для запуска 
+- Прогон всех тестов
+```
+pytest -vv
+```
+- Частичный запуск тестов
+```
+pytest tests/<choose_your_file>.py
+```
+- Команда для запуска совместно с Allure 
+```
+pytest --alluredir=allure_report
+```
+- Команда для получения Allure отчета 
+```
+allure serve allure_report
+```
 
