@@ -10,26 +10,26 @@ class Data:
     email = faker.email()
 
 class Urls:
-    main_url = "https://stellarburgers.nomoreparties.site"
-    api_create_user = "/api/auth/register"
-    api_login_user = "/api/auth/login"
-    api_order = "/api/v1/orders"
-    api_delete_user = "/api/auth/user"
-    api_get_user = '/api/auth/user'
-    api_get_ingredients = "/api/ingredients"
-    api_create_order = "/api/orders"
+    MAIN_URL = "https://stellarburgers.nomoreparties.site"
+    API_CREATE_USER = "/api/auth/register"
+    API_LOGIN = "/api/auth/login"
+    API_ORDER = "/api/v1/orders"
+    API_DELETE_USER = "/api/auth/user"
+    API_GET_USER = '/api/auth/user'
+    API_GET_INGREDIENTS = "/api/ingredients"
+    API_CREATE_ORDERS = "/api/orders"
 
 class ErrorMessage:
-    text_login_401 = 'email or password are incorrect'
-    text_login_404 = "Учетная запись не найдена"
-    text_create_403_double = "User already exists"
-    text_create_403_wrong = "Email, password and name are required fields"
-    text_create_400 = "Недостаточно данных для создания учетной записи"
-    text_update_401 = "You should be authorised"
-    text_order_without_ingredients = "Ingredient ids must be provided"
-    text_get_orders_no_auth = "You should be authorised"
+    TEXT_LOGIN_401 = 'email or password are incorrect'
+    TEXT_LOGIN_404 = "Учетная запись не найдена"
+    TEXT_CREATE_403_DOUBLE = "User already exists"
+    TEXT_CREATE_403_WRONG = "Email, password and name are required fields"
+    TEXT_CREATE_400 = "Недостаточно данных для создания учетной записи"
+    TEXT_UPDATE_401 = "You should be authorised"
+    TEXT_ORDER_WITHOUT_INGREDIENTS = "Ingredient ids must be provided"
+    TEXT_GET_ORDERS_NO_AUTH = "You should be authorised"
 
 class Burgers:
-    met_flu_classic = 'Метеоритный флюоресцентный традиционный-галактический бургер'
-    space_mars = 'Space бессмертный био-марсианский бургер'
-    spicy = 'Spicy бессмертный краторный бургер'
+    MET_FLU_CLASSIC = 'Метеоритный флюоресцентный традиционный-галактический бургер'
+    SPACE_MARS = 'Space бессмертный био-марсианский бургер'
+    SPICY = 'Spicy бессмертный краторный бургер'
